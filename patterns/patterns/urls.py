@@ -20,5 +20,5 @@ from pattern_galery.views import browse_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', browse_view)
+    url(r'^$', browse_view)
 ]

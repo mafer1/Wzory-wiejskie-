@@ -12,6 +12,8 @@
 .pattern-entry:hover{
     /*box-shadow: 5px 5px 5px 5px green;*/
     /*border: 5px solid green;*/
+    transform: scale(1.2,1.2);
+    cursor: pointer;
 }
 
 .pattern-row{
