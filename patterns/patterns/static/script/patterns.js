@@ -1,7 +1,11 @@
 $(document).ready(function onDocumentLoaded() {
-
 });
 
 function openPatternDetailsModal(patternID) {
-    console.log("Opening pattern "+patternID); //debugowanie
+    jQuery.get("/pattern?pattern_id="+patternID)
+        .done(function (data) {
+            console.log(data);
+           jQuery('#patternModalContent').html(data);
+           jQuery('#patternModal').modal()
+        });
 }

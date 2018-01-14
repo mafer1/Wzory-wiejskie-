@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from pattern_galery.views import browse_view
+from pattern_galery.views import browse_view, modal_view
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
+                  url(r'^pattern/', modal_view),
                   url(r'^$', browse_view)
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # dodanie folderu z plikami

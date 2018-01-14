@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
 
+from pattern_galery.models import PatternEntry
 from patterns.services import patterns_service, config_service, utils_service
 
 
@@ -24,3 +25,16 @@ def browse_view(request):
                            'current_page_human_readable': current_page + 1,
                            'next_page': current_page + 2,
                            'total_pages': total_pages_count})
+
+
+def modal_view(request):
+    if 'pattern_id' not in request.GET:
+        raise Http404()
+    else:
+        pattern_id = request.GET['pattern_id']
+        pattern = PatternEntry.objects.get(id=pattern_id)
+
+    return render(request, "patterns/pattern-modal.html",
+                  context={
+                      'pattern': pattern
+                  })

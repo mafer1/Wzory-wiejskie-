@@ -1,6 +1,14 @@
 {% extends "patterns/base.html" %}
 
 {% block content %}
+
+    <div class="modal" id="patternModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="patternModalContent">
+            </div>
+        </div>
+    </div>
+
     {% if patterns_grid %}
         {% for row in patterns_grid %}
             <div class="row align-items-center pattern-row">
@@ -18,7 +26,9 @@
     <div class="row paging-row">
         <div class="col-md-4" align="center">
             {% if current_page > 0 %}
-                <button type="button" class="btn btn-secondary paging-button" onclick="location.href='/?current-page={{ previous_page }}'">Poprzednia</button>
+                <button type="button" class="btn btn-secondary paging-button"
+                        onclick="location.href='/?current-page={{ previous_page }}'">Poprzednia
+                </button>
             {% endif %}
         </div>
         <div class="col-md-4" align="center">
@@ -26,7 +36,9 @@
         </div>
         <div class="col-md-4" align="center">
             {% if current_page_human_readable < total_pages %}
-                <button type="button" class="btn btn-secondary paging-button" onclick="location.href='/?current-page={{ next_page }}'">Następna</button>
+                <button type="button" class="btn btn-secondary paging-button"
+                        onclick="location.href='/?current-page={{ next_page }}'">Następna
+                </button>
             {% endif %}
 
         </div>
